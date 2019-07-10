@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "turzone-english",
+    "description": "Dictionary app",
+    "version": "1.0",
+    "icons": { "192": "icon.png" },
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "index.html"
+    },
+    "permissions": ["activeTab"],
+    "web_accessible_resources": [
+        "assets/css/*",
+        "assets/js/*",
+        "assets/fonts/*"
+    ]
+}
+

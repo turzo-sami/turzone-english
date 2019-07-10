@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="searchOptions">
+        <div class="textInput">
+            <input type="text" [(ngModel)]="searchText" (keyup)="loadResult()">
+        </div>
+
+        <div class="buttonOptions">
+            <button [class.buttonSelected]="buttonSelected == 'Synonym'" (click)="buttonSelected = 'Synonym'; loadResult()">Synonym</button>
+            <button [class.buttonSelected]="buttonSelected == 'Antonym'" (click)="buttonSelected = 'Antonym'; loadResult()">Antonym</button>
+            <button [class.buttonSelected]="buttonSelected == 'Homophone'" (click)="buttonSelected = 'Homophone'; loadResult()">Homophone</button>
+            <button [class.buttonSelected]="buttonSelected == 'Rhyming'" (click)="buttonSelected = 'Rhyming'; loadResult()">Rhyming</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="resultDisplay">
+
+        <ng-container *ngFor="let word of results">
+            <span class="result" (click)="searchText = word.word; loadResult()">{{word?.word}}</span>        
+            &nbsp;        
+            <small *ngIf="word?.numSyllables" style="float: right"> Syllables: {{word?.numSyllables}}</small>
+            <br>
+        </ng-container>    
+            
+    </div>
+
+</div>
